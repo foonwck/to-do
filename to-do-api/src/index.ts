@@ -1,5 +1,6 @@
 import { Elysia } from "elysia";
 import { cors } from "@elysiajs/cors";
+import { openapi } from "@elysiajs/openapi";
 import { todoRoutes } from "./routes/todos";
 
 const PORT = Number(process.env.PORT ?? 3000);
@@ -14,6 +15,17 @@ const resolvedCorsOrigins = corsOrigin
   : defaultCorsOrigins;
 
 const app = new Elysia()
+  .use(
+    openapi({
+      documentation: {
+        info: {
+          title: "To-Do API",
+          version: "1.0.0",
+          description: "REST API for the to-do application",
+        },
+      },
+    })
+  )
   .use(
     cors({
       origin: corsOrigin === "*" ? true : resolvedCorsOrigins,

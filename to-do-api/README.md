@@ -62,6 +62,8 @@ The API listens on <http://localhost:3000> by default.
 | Method   | Path          | Description            |
 |----------|---------------|------------------------|
 | `GET`    | `/health`     | Health check           |
+| `GET`    | `/openapi`    | OpenAPI docs UI        |
+| `GET`    | `/openapi/json` | OpenAPI JSON spec    |
 | `GET`    | `/todos`      | List all todos         |
 | `GET`    | `/todos/:id`  | Get a single todo      |
 | `POST`   | `/todos`      | Create a todo          |
